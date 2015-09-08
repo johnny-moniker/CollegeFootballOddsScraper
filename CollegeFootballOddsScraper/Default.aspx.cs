@@ -28,16 +28,13 @@ namespace CollegeFootballOddsScraper
                     //http://www.oddsshark.com/ncaaf/odds
                     //var htmlData = (new HtmlWeb()).Load("http://www.ncaa.com/scoreboard/football/fbs");                    
                     //var htmlData = (new HtmlWeb()).Load("http://www.cbssports.com/collegefootball/scoreboard");
-                    //var htmlData = (new HtmlWeb()).Load("http://stats.5dimes.eu/Stats/Matchups/Football/NCAAF/999");
-
-                    //var htmlData = (new HtmlWeb()).Load("http://www.bookmaker.eu/live-lines/football/college-football");
-                    
+                   
                     (new DataParser(commands[1], commands[0])).GetScoresInTableFormat().ForEach(row => tblHTMLData.Rows.Add(row));
 
                     break;
                 case "XML":
                     //fetch
-                    var xmlData = XDocument.Load("http://xml.pinnaclesports.com/pinnaclefeed.aspx?sporttype=Football&sportsubtype=ncaa");
+                  
                     //process
                     (new DataParser(commands[1], commands[0])).GetScoresInTableFormat().ForEach(row => tblXMLData.Rows.Add(row));
                     break;
